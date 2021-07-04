@@ -1,3 +1,4 @@
+
 const path = require("path");
 const nodeSass = require("node-sass");
 
@@ -6,9 +7,14 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "My Gatsby Site",
   },
-  plugins: [    
+  plugins: [
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-typescript",
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-inline-svg`,
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,    
     {
       resolve: "gatsby-plugin-root-import",
       options: {
@@ -31,6 +37,6 @@ module.exports = {
           sourceMap: true,
         },
       },
-    },
+    }
   ],
 };
