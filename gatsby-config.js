@@ -1,11 +1,11 @@
-
-const path = require("path");
-const nodeSass = require("node-sass");
+const path = require("path")
+const nodeSass = require("node-sass")
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "My Gatsby Site",
+    title: `Luân Luân`,
+    description: `Luân Luân, Nguyên Văn Luân resume`,
+    siteUrl: "https://nifty-aryabhata-faa1ed.netlify.app/",
   },
   plugins: [
     "gatsby-plugin-gatsby-cloud",
@@ -14,7 +14,7 @@ module.exports = {
     `gatsby-transformer-inline-svg`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,    
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-plugin-root-import",
       options: {
@@ -25,6 +25,8 @@ module.exports = {
         types: path.join(__dirname, "src/types"),
         src: path.join(__dirname, "src"),
         pages: path.join(__dirname, "src/pages"),
+        theme: path.join(__dirname, "src/theme"),
+        assets: path.join(__dirname, "src/assets"),
       },
     },
     {
@@ -37,6 +39,26 @@ module.exports = {
           sourceMap: true,
         },
       },
-    }
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets\/.*\.svg/,
+          options: {
+            classIdPrefix: true,
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: true,
+      },
+    },
   ],
-};
+}
